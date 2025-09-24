@@ -41,6 +41,8 @@ $ composer require mtvs/eloquent-approval
 
 ### Registering the service provider
 
+> In Laravel 11+ it is no longer necessary.
+
 By default the service provider is registered automatically by Laravel package
 discovery otherwise you need to register it in your `config\app.php`
 
@@ -55,6 +57,15 @@ last status update is occurred named `approval_at`.
 
 ```php
 $table->approvals()
+```
+
+If you use custom column names 
+
+```php
+$table->approvals([
+    'status_name' => 'custom_approval_status',
+    'timestamp_name' => 'custom_approval_at',
+])
 ```
 
 You can change the default column names but then you need to specify them on the model too.
